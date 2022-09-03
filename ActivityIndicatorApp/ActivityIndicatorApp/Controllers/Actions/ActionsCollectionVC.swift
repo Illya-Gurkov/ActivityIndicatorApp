@@ -11,6 +11,7 @@ import UIKit
 enum Actons: String, CaseIterable /* позволяет из перечисления сделать массив */ {
     case downloadImage = "Download Image"
     case users = "Users"
+  
 }
 
 class ActionsCollectionVC: UICollectionViewController {
@@ -52,6 +53,9 @@ class ActionsCollectionVC: UICollectionViewController {
                                               sender: nil)
             case .users: performSegue(withIdentifier: "showUsersSegue",
                                       sender: nil)
+    
+                              
+            
         }
     }
     
