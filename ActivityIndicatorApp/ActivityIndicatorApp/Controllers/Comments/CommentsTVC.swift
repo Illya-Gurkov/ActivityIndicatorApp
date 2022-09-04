@@ -1,40 +1,67 @@
 //
-//  PostsTVC.swift
+//  CommentsTVC.swift
 //  ActivityIndicatorApp
 //
-//  Created by Illya Gurkov on 3.09.22.
+//  Created by Illya Gurkov on 4.09.22.
 //
 
 import UIKit
 
-
-class PostsTVC: UITableViewController {
-
+class CommentsTVC: UITableViewController {
     var user: User?
-    var posts: [Post] = []
+    var posts: Post?
+    var comment: [Comment] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
- fetchPosts()
-        
+fetchPosts()
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
- 
+   
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        posts.count
+        comment.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let post = posts[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = post.title
-        cell.detailTextLabel?.text = post.body
+        let comments = comment[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsCell", for: indexPath)
+        cell.textLabel?.text = comments.name
+        cell.detailTextLabel?.text = comments.body
+        
+
         return cell
     }
-    
+   private func fetchPosts() {
+        
+        guard let postId = posts?.id else { return }
+        let pathUrl = "\(ApiConstants.commentsPath)?postId=\(postId)"
+
+        guard let url = URL(string: pathUrl) else { return }
+
+        let task = URLSession.shared.dataTask(with: url) { (data, _, _) in
+            guard let data = data else { return }
+            do {
+                self.comment = try JSONDecoder().decode([Comment].self, from: data)
+                print(self.comment)
+            } catch let error {
+                print(error)
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        task.resume()
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -80,27 +107,5 @@ class PostsTVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func fetchPosts() {
-        
-        guard let userId = user?.id else { return }
-        let pathUrl = "\(ApiConstants.postsPath)?userId=\(userId)"
-
-        guard let url = URL(string: pathUrl) else { return }
-
-        let task = URLSession.shared.dataTask(with: url) { (data, _, _) in
-            guard let data = data else { return }
-            do {
-                self.posts = try JSONDecoder().decode([Post].self, from: data)
-                print(self.posts)
-            } catch let error {
-                print(error)
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        task.resume()
-    }
 
 }
-
