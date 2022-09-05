@@ -8,39 +8,33 @@
 import UIKit
 
 class DetaliUserVC: UIViewController {
-
     var user: User?
     
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet var name: UILabel!
     
-    @IBOutlet weak var userName: UILabel!
+    @IBOutlet var userName: UILabel!
     
-    @IBOutlet weak var email: UILabel!
+    @IBOutlet var email: UILabel!
     
-    @IBOutlet weak var phone: UILabel!
+    @IBOutlet var phone: UILabel!
     
-    @IBOutlet weak var webSite: UILabel!
+    @IBOutlet var webSite: UILabel!
     
+    @IBOutlet var street: UILabel!
     
-    @IBOutlet weak var street: UILabel!
+    @IBOutlet var suite: UILabel!
     
-    @IBOutlet weak var suite: UILabel!
+    @IBOutlet var city: UILabel!
     
-    @IBOutlet weak var city: UILabel!
+    @IBOutlet var zipCod: UILabel!
     
-    @IBOutlet weak var zipCod: UILabel!
+    @IBOutlet var Latitude: UILabel!
     
-    @IBOutlet weak var Latitude: UILabel!
-    
-    @IBOutlet weak var Longitude: UILabel!
-    
-    
-    
-    
+    @IBOutlet var Longitude: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-setupUI()
+        setupUI()
     }
     
     @IBAction func postsAction() {
@@ -50,14 +44,9 @@ setupUI()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func albomsAction() {
-    }
+    @IBAction func albomsAction() {}
     
-    @IBAction func todosAction() {
-    }
-    
-    
-    
+    @IBAction func todosAction() {}
     
     private func setupUI() {
         name.text = user?.name
@@ -72,7 +61,4 @@ setupUI()
         Latitude.text = user?.address?.geo?.lat
         Longitude.text = user?.address?.geo?.lng
     }
-
-
-
 }

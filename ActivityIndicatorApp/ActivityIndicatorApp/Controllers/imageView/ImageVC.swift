@@ -8,25 +8,19 @@
 import UIKit
 
 class ImageVC: UIViewController {
-
- 
+    @IBOutlet var imageView: UIImageView!
     
-    @IBOutlet weak var imageView: UIImageView!
-    
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
-    
+    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     
     private let imageUrl = "https://rjbailey.files.wordpress.com/2015/08/15-205.jpg"
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-fetchImageData()
-       
+        fetchImageData()
     }
     
     private func fetchImageData() {
-        guard let url = URL(string: imageUrl) else {return}
+        guard let url = URL(string: imageUrl) else { return }
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             DispatchQueue.main.async {
                 self?.activityIndicatorView.stopAnimating()
@@ -44,6 +38,4 @@ fetchImageData()
         }
         task.resume()
     }
-    }
-
-
+}

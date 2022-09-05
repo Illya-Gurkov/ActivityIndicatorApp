@@ -9,8 +9,6 @@ import UIKit
 
 class UsersTVC: UITableViewController {
     var users: [User] = []
-  
-    
 
     // MARK: - Table view data source
 
@@ -18,7 +16,6 @@ class UsersTVC: UITableViewController {
         users.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
@@ -27,19 +24,17 @@ class UsersTVC: UITableViewController {
 
         return cell
     }
-    
+
     // MARK: - Table view delegate
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = users [indexPath.row]
+        let user = users[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "DetaliUserVC") as! DetaliUserVC
         vc.user = user
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
- 
+
     func fetchUsers() {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else {
             return
@@ -65,5 +60,4 @@ class UsersTVC: UITableViewController {
         }
         task.resume()
     }
-
 }

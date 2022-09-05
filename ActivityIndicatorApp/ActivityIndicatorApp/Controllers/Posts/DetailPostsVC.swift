@@ -8,35 +8,16 @@
 import UIKit
 
 class DetailPostsVC: UIViewController {
+    var post: Post?
     
-
-var post: Post?
+    @IBOutlet var titlee: UILabel!
     
-    
-    
-  
-
-    @IBOutlet weak var titlee: UILabel!
-    
-    @IBOutlet weak var boddy: UILabel!
+    @IBOutlet var boddy: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-setupUI()
-       
+        setupUI()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     
     @IBAction func commentsButton() {
         let storyboard = UIStoryboard(name: "PostsAndComments", bundle: nil)
@@ -44,7 +25,6 @@ setupUI()
         vc.posts = post
         navigationController?.pushViewController(vc, animated: true)
     }
-    
     
     private func setupUI() {
         titlee.text = post?.title
