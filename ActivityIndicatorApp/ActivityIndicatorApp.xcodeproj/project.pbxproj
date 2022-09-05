@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5712628028C5348E004B0EE3 /* CommentsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5712627F28C5348E004B0EE3 /* CommentsTVC.swift */; };
+		5712628228C5E4D3004B0EE3 /* DetaliCommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5712628128C5E4D3004B0EE3 /* DetaliCommentsVC.swift */; };
 		572C109A28BE6CC000846F43 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572C109928BE6CC000846F43 /* Models.swift */; };
 		572C10A128BE770000846F43 /* ActionsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572C10A028BE770000846F43 /* ActionsCollectionVC.swift */; };
 		572C10A328BE776B00846F43 /* ActionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572C10A228BE776B00846F43 /* ActionCollectionViewCell.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		5712627F28C5348E004B0EE3 /* CommentsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTVC.swift; sourceTree = "<group>"; };
+		5712628128C5E4D3004B0EE3 /* DetaliCommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaliCommentsVC.swift; sourceTree = "<group>"; };
 		572C109928BE6CC000846F43 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		572C10A028BE770000846F43 /* ActionsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsCollectionVC.swift; sourceTree = "<group>"; };
 		572C10A228BE776B00846F43 /* ActionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				5712627F28C5348E004B0EE3 /* CommentsTVC.swift */,
+				5712628128C5E4D3004B0EE3 /* DetaliCommentsVC.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				57C3DF4628C36C71007D0A91 /* DetaliUserVC.swift in Sources */,
 				57D23AF528BE38B70097A234 /* AppDelegate.swift in Sources */,
 				57C3DF4E28C3916F007D0A91 /* ApiConstants.swift in Sources */,
+				5712628228C5E4D3004B0EE3 /* DetaliCommentsVC.swift in Sources */,
 				57FA3D5F28C518B900585178 /* DetailPostsVC.swift in Sources */,
 				57D23AF728BE38B70097A234 /* SceneDelegate.swift in Sources */,
 				572C10A728BE860C00846F43 /* ImageVC.swift in Sources */,

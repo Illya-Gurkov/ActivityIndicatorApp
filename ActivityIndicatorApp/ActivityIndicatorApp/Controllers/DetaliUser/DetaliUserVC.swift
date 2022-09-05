@@ -22,6 +22,21 @@ class DetaliUserVC: UIViewController {
     @IBOutlet weak var webSite: UILabel!
     
     
+    @IBOutlet weak var street: UILabel!
+    
+    @IBOutlet weak var suite: UILabel!
+    
+    @IBOutlet weak var city: UILabel!
+    
+    @IBOutlet weak var zipCod: UILabel!
+    
+    @IBOutlet weak var Latitude: UILabel!
+    
+    @IBOutlet weak var Longitude: UILabel!
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +65,12 @@ setupUI()
         email.text = user?.email
         phone.text = user?.phone
         webSite.text = user?.website
+        street.text = user?.address?.street
+        suite.text = user?.address?.suite
+        city.text = user?.address?.city
+        zipCod.text = user?.address?.zipcode
+        Latitude.text = user?.address?.geo?.lat
+        Longitude.text = user?.address?.geo?.lng
     }
 
 
